@@ -1,0 +1,18 @@
+{% extends "ais_gen/base.html" %}
+
+{% block content %}
+
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list%}
+            <li><a href="{% url 'generator:detail' question.id %}">{{ question.question_text}}</a> </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<a href="{% url 'generator:upload_date' %}">Generátor AIS</a>
+
+{% endblock %}
+
